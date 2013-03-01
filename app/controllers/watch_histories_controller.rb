@@ -1,0 +1,34 @@
+class WatchHistoriesController < ApplicationController
+  before_filter :set_user
+  before_filter :set_watch_history, only: :destroy
+
+  respond_to :json
+
+  # POST /watch_histories
+  # POST /watch_histories.json
+  def create
+    @watch_history = WatchHistory.new
+    @watch_history.xvideo = Xvideo.first_or_create(url: params[:url])
+    @watch_history.user = @user
+    @watch_history.save
+    respond_with(@watch_history)
+  end
+
+  # DELETE /watch_histories/1
+  # DELETE /watch_histories/1.json
+  def destroy
+    @watch_history.destroy
+    respond_with(@watch_history)
+  end
+
+  private
+
+  def set_user
+    @user = User.where(uid: params[:uid], token: params[:token]).first
+    @user ||= User.create
+  end
+
+  def set_watch_history
+    @watch_history  = WatchHistory.find(params[:id])
+  end
+end

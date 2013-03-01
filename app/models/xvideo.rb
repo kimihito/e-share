@@ -3,8 +3,8 @@ require 'open-uri'
 class Xvideo < ActiveRecord::Base
   before_validation :set_title_and_thumb_url
 
-  has_many :watch_histroies, dependent: :destroy
-  has_many :watched_users, through: :watch_histroies, class_name: 'User'
+  has_many :watch_histories, dependent: :destroy
+  has_many :watched_users, through: :watch_histories, source: :user
 
   attr_accessible :url
   validates_presence_of :url, :thumb_url, :title
