@@ -1,5 +1,5 @@
 var events={};
-var BASE_URL="http://e-share.dev/";
+var BASE_URL="http://e-share.geeoki.com/";
 
 function post(path,data,cb,err){
   var http=new XMLHttpRequest();
