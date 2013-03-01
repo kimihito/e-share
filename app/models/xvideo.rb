@@ -1,10 +1,10 @@
 require 'open-uri'
 
 class Xvideo < ActiveRecord::Base
-  before_validate :set_title_and_thumb_url
+  before_validation :set_title_and_thumb_url
 
   attr_accessible :url
-  validate_presence_of :url, :thumb_url, :title
+  validates_presence_of :url, :thumb_url, :title
   validates_uniqueness_of :url
 
   private
