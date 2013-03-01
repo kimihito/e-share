@@ -1,5 +1,5 @@
 var events={};
-var BASE_URL="http://e-share.dev";
+var BASE_URL="http://e-share.dev/";
 
 function post(path,data,cb,err){
   var http=new XMLHttpRequest();
@@ -36,25 +36,26 @@ events.notify_page_view=function(url){
   var viewdata={url:url};
   var user=getUserInfo();
   if(user){viewdata.uid=user.uid;viewdata.token=user.token}
-  post('/watch_histories.json',viewdata,function(data){
+  post('watch_histories.json',viewdata,function(data){
     if(data.user)saveUserInfo(data.user);
     console.log(data);
   });
 }
  
-function openUserPage=function(){
+function openUserPage(){
   var user=getUserInfo();
-  if(user)openWindow(BASE_URL+"/users/"+user.uid);
+  if(user)openWindow(BASE_URL+"users/"+user.uid);
   else{
-    post('/users.json',null,function(user){
+    post('users.json',null,function(user){
       saveUserInfo(user);
-      openWindow(BASE_URL+"/users/"+user.uid);
+      openWindow(BASE_URL+"users/"+user.uid);
     });
   }
 }
 
 
 chrome.extension.onRequest.addListener(function(message,sender,callback){
+  console.log(message);
   var ev=events[message.event];
   if(ev)ev(message.data)
 });

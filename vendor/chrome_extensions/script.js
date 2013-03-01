@@ -1,1 +1,1 @@
-chrome.extension.sendRequest({action:'notify_page_view',data:location.href});
+chrome.extension.sendRequest({event:'notify_page_view',data:location.href});
