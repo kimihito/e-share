@@ -8,7 +8,7 @@ class WatchHistoriesController < ApplicationController
   # POST /watch_histories.json
   def create
     @watch_history = WatchHistory.new
-    @watch_history.xvideo = Xvideo.first_or_create(url: params[:url])
+    @watch_history.xvideo = Xvideo.where(url: params[:url]).first_or_create
     @watch_history.user = @user
     @watch_history.save
     respond_with(@watch_history)
