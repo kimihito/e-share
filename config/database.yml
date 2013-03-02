@@ -21,8 +21,8 @@ test:
 production:
   adapter: mysql2
   socket: /var/run/mysqld/mysqld.sock
-  database: <%= ESHARE_DBNAME %>
-  username: <%= ESHARE_USERNAME %>
-  password: <%= ESHARE_PASSWORD %>
+  database: <%= ENV['ESHARE_DBNAME'] %>
+  username: <%= ENV['ESHARE_USERNAME'] %>
+  password: <%= ENV['ESHARE_PASSWORD'] %>
   pool: 5
   timeout: 5000
