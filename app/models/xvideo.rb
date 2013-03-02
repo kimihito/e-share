@@ -6,6 +6,9 @@ class Xvideo < ActiveRecord::Base
   has_many :watch_histories, dependent: :destroy
   has_many :watched_users, through: :watch_histories, source: :user
 
+  has_many :favorite_videos, dependent: :destroy
+  has_many :favorited_users, through: :favorite_videos, source: :user
+
   attr_accessible :url
   validates_presence_of :url, :thumb_url, :title
   validates_uniqueness_of :url

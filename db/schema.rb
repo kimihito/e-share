@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301181410) do
+ActiveRecord::Schema.define(:version => 20130302021035) do
+
+  create_table "favorite_videos", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "xvideo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "favorite_videos", ["xvideo_id", "user_id"], :name => "index_favorite_videos_on_xvideo_id_and_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "uid"

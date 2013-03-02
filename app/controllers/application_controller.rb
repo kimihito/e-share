@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  def user_signed_in!
+    render nothing:true unless user_signed_in?
+  end
   def user_sign_in(params)
     user=User.where(uid:params[:uid],token:params[:token]).first
     session['user_id']=user.id if user
