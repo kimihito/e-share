@@ -43,7 +43,7 @@ events.notify_page_view=function(url){
 }
 
 function openUserPageWindow(user){
-  openWindow(BASE_URL+"user/login?uid="+user.uid+"&token="+user.token);
+  openWindow(BASE_URL+"users/login?uid="+user.uid+"&token="+user.token);
 }
 function openUserPage(){
   var user=getUserInfo();

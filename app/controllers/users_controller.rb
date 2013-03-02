@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    user_sign_in(params)
+    redirect_to :user
+  end
+
   private
 
   def set_user
