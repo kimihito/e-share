@@ -4,6 +4,6 @@ class UserController < ApplicationController
 
   def login
     user_sign_in(params)
-    redirect_to '/'
+    redirect_to :user
   end
 end
