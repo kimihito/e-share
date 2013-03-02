@@ -10,6 +10,8 @@ class Xvideo < ActiveRecord::Base
   validates_presence_of :url, :thumb_url, :title
   validates_uniqueness_of :url
 
+  scope :recently_watched, -> page = 1 { where(id: WatchHistory.select(:xvideo_id).uniq.page(page)) }
+
   private
 
   def set_title_and_thumb_url
