@@ -41,14 +41,17 @@ events.notify_page_view=function(url){
     console.log(data);
   });
 }
- 
+
+function openUserPageWindow(user){
+  openWindow(BASE_URL+"users/login?uid="+user.uid+"&token="+user.token);
+}
 function openUserPage(){
   var user=getUserInfo();
-  if(user)openWindow(BASE_URL+"users/"+user.uid);
+  if(user)openUserPageWindow(user);
   else{
     post('users.json',null,function(user){
       saveUserInfo(user);
-      openWindow(BASE_URL+"users/"+user.uid);
+      openUserPageWindow(user);
     });
   }
 }
