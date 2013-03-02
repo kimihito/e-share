@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Uid:</b>
+  <%= @user.uid %>
+</p>
+
+<% @user.watched_xvideos.each do |xvideo| %>
+  <h2><%= xvideo.title %></h2>
+  <%= image_tag xvideo.thumb_url %>
+<% end %>

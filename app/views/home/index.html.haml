@@ -1,3 +1,12 @@
+- content_for :javascript do
+  %script{:src => "http://js.pusher.com/1.12/pusher.min.js"}
+  :javascript
+    var pusher = new Pusher('#{Pusher.key}'); // uses your API KEY
+    var channel = pusher.subscribe('post_videos');
+    channel.bind('new', function(data) {
+      $("<div>").html((data)).prependTo("body")
+    });
+
 %section#introduction
   %h2 e-share
   .indent

@@ -14,7 +14,7 @@ group :production do
 end
 
 gem 'kaminari'
-
+gem 'pusher'
 #--------------------------------------------------------------------------------
 # Assets
 #--------------------------------------------------------------------------------
@@ -35,6 +35,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'ejs'
 end
 
 gem 'jquery-rails'

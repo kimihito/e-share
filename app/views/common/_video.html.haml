@@ -1,0 +1,5 @@
+.indent.well
+  %img{"src"=>"#{xvideo.thumb_url}","alt"=>"Description of image","style"=>"width:150px;height:150px; float:left;"}
+
+  #{link_to xvideo.title, xvideo.url, "style" => "margin-left:20px;font-size:23px"}
+  #{link_to 'vfav',{controller: :favorite_videos,action: :create,id:xvideo.id},{method: :post}}

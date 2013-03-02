@@ -11,6 +11,12 @@ class WatchHistoriesController < ApplicationController
     @watch_history.xvideo = Xvideo.where(url: params[:url]).first_or_create
     @watch_history.user = @user
     @watch_history.save
+
+    #Send pusher data
+    html = render :partial => "common/video", :locals => {:xvideo => @watch_history.xvideo}
+
+    Pusher['post_videos'].trigger('new', html)
+
     respond_with(@watch_history)
   end
 
