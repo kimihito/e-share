@@ -1,0 +1,15 @@
+%section#introduction
+  %h2 e-share 
+  .indent 
+    Sharing for adults videos
+  .indent
+    #{link_to "Chromeエクステンション", "URL"} で快適なエロライフを!!!
+%section#line
+  %h3 現在誰かが視聴中
+  -# - @users.each do |user|
+  .indent.well
+    %img{"src"=>"/path/to/image","alt"=>"Description of image","style"=>"width:150px;height:150px; float:left;"}
+
+    #{link_to "avのタイトル", "URL", "style" => "margin-left:20px;font-size:23px"}
+-# - end
+

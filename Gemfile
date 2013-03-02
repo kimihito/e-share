@@ -13,11 +13,19 @@ group :production do
   gem 'mysql2'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
+#--------------------------------------------------------------------------------
+# Assets
+#--------------------------------------------------------------------------------
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+
+  gem 'bootstrap-sass', :git => "git://github.com/machida/bootstrap-sass.git", branch: 'master'
+  gem 'compass-rails'
+  gem 'sassy-buttons'
+  gem 'font-awesome-sass-rails'
+  gem "compass-rgbapng", :require => "rgbapng"
+  gem "zurui-sass-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -47,3 +55,11 @@ end
 
 # To use debugger
 # gem 'debugger'
+
+#--------------------------------------------------------------------------------
+# View
+#--------------------------------------------------------------------------------
+gem 'haml'
+gem 'haml-rails'
+gem 'jquery-rails'
+

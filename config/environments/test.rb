@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 EShare::Application.configure do
+=======
+CustomizedTwitterBootstrap::Application.configure do
+>>>>>>> 2c8c29a89d0a1a319deaecb11e93b868b7021349
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
