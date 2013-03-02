@@ -14,7 +14,8 @@ class FavoriteVideosController < ApplicationController
 
   # DELETE /favorite_videos/1.json
   def destroy
-    @favorite_video = FavoriteVideo.find(params[:id])
-    format.json { head :no_content }
+    fav = FavoriteVideo.where(user_id:current_user.id,xvideo_id:params[:id]).first
+    fav.destroy if fav
+    render nothing:true
   end
 end
