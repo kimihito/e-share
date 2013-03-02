@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   end
   def user_sign_in(params)
     user=User.where(uid:params[:uid],token:params[:token]).first
-    session['user_id']=user.id if user
+    if user
+      session['user_id']=user.id
+      user
+    end
   end
   def current_user
     return nil unless session['user_id']

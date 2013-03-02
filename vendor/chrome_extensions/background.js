@@ -1,6 +1,6 @@
 var events={};
 var BASE_URL="http://e-share.geeoki.com/";
-
+var BASE_URL="http://localhost:3000/";
 function post(path,data,cb,err){
   var http=new XMLHttpRequest();
   http.open('post',BASE_URL+path,true);
@@ -43,7 +43,7 @@ events.notify_page_view=function(url){
 }
 
 function openUserPageWindow(user){
-  openWindow(BASE_URL+"users/login?uid="+user.uid+"&token="+user.token);
+  openWindow(BASE_URL+"user_login?uid="+user.uid+"&token="+user.token);
 }
 function openUserPage(){
   var user=getUserInfo();

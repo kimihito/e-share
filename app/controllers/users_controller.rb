@@ -22,13 +22,16 @@ class UsersController < ApplicationController
   end
 
   def login
-    user_sign_in(params)
-    redirect_to :user
+    user=user_sign_in(params)
+    if user
+      redirect_to user
+    else
+      redirect_to :root
+    end
   end
 
   private
-
   def set_user
-    @user = User.where(uid: params[:id]).first
+    @user = User.where(id: params[:id]).first
   end
 end
