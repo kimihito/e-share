@@ -10,7 +10,10 @@ class Xvideo < ActiveRecord::Base
   validates_presence_of :url, :thumb_url, :title
   validates_uniqueness_of :url
 
-  scope :recently_watched, -> page = 1 { where(id: WatchHistory.select(:xvideo_id).uniq.page(page)) }
+  scope :recently_watched, -> page = 1 {
+    recently_watched_xvideo_ids = WatchHistory.select(:xvideo_id).uniq.page(page).pluck(:id)
+    where(id: recently_watched_xvideo_ids)
+  }
 
   private
 
