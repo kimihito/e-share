@@ -1,0 +1,25 @@
+%section#introduction
+  %h2 e-share
+
+%ul.nav.nav-tabs
+  %li
+    %a{"data-toggle" => "tab", :href => "#history"} 視聴履歴
+  %li
+    %a{"data-toggle" => "tab", :href => "#favorite"} お気に入り
+
+
+.tab-content
+  #history.tab-pane.active 
+    - @user.watched_xvideos.each do |xvideo|
+      .indent.well
+        %img{"src"=>"#{xvideo.thumb_url}","alt"=>"Description of image","style"=>"width:150px;height:150px; float:left;"}
+
+      #{link_to xvideo.title, xvideo.url, "style" => "margin-left:20px;font-size:23px"}
+
+  #favorite.tab-pane
+    .indent.well
+      %img{"src"=>"/path/to/image","alt"=>"Description of image","style"=>"width:150px;height:150px; float:left;"}
+
+      #{link_to "お気に入りのAVタイトル", "URL", "style" => "margin-left:20px;font-size:23px"}
+  
+
