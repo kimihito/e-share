@@ -28,7 +28,7 @@ class Xvideo < ActiveRecord::Base
   end
 
   def user_favorited?(user)
-    FavoriteVideo.where(user_id:user.id,xvideo_id:id).present?
+    user && FavoriteVideo.where(user_id:user.id,xvideo_id:id).present?
   end
 
   private

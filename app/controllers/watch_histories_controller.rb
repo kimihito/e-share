@@ -13,7 +13,7 @@ class WatchHistoriesController < ApplicationController
     @watch_history.save
 
     #Send pusher data
-    html = render :partial => "common/video", :locals => {:xvideo => @watch_history.xvideo}
+    html = render_to_string partial:"/common/video",locals:{:xvideo => @watch_history.xvideo},formats:[:html],layout:false
 
     Pusher['post_videos'].trigger('new', html)
 

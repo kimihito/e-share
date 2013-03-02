@@ -17,7 +17,8 @@
     %link{:href => "../assets/ico/apple-touch-icon-72-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "72x72"}
     %link{:href => "../assets/ico/apple-touch-icon-57-precomposed.png", :rel => "apple-touch-icon-precomposed"}
 
-    %script{:src => "http://js.pusher.com/1.12/pusher.min.js"}
+    = yield :javascript
+
 
   %body(class="#{controller_name} #{controller_name}_#{action_name}")
     .navbar.navbar-fixed-top
