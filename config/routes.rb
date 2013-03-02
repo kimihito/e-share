@@ -1,4 +1,6 @@
 EShare::Application.routes.draw do
+  get "user/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -50,6 +52,7 @@ EShare::Application.routes.draw do
   # just remember to delete public/index.html.
   root to: 'home#index'
   get 'eyecatch'          => 'home#eyecatch',    as: 'eyecatch'
+  get 'user'              => 'user#index', as: 'user'
 
   # See how all your routes lay out with "rake routes"
 

@@ -2,7 +2,7 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}
-    %title Zurui Sass Sample
+    %title e-share
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
@@ -23,15 +23,18 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "#"} Zurui Sass Sample
+          %a.brand{:href => "#"} e-share
     -if %w(eyecatch).include? params["action"]
       = render partial: 'eyecatch'
     .container
       .row
-        .span2
-          = yield :sidemenu
-        .span10
+        .span3
+        .span6
           = yield
+        .span3
       %hr
         %footer
-          %p &copy; Company 2012
+          .span3
+          .span6
+            %p &copy; Company 2012
+          .span3

@@ -69,6 +69,8 @@ h2
   @include em-font
   font-size: 48px
   @include zurui-ts-000(.1)
+  @include zurui-line-bottom(.2, 1.0)
+  margin-bottom: 10px
 
 h3
   @include zurui-ts-000(.1)
@@ -81,6 +83,16 @@ h4
 
 .well
   @include zurui-box-deboss(.1, .4, .7)
+  min-height: 170px
+
+.zurui-box-inner
+  @include box-shadows-sample
+  @include zurui-box-inner
+  background-image: image-url("bedge_grunge.png")
+
+.zurui-line-right
+  @include lines-sample
+  @include zurui-line-right(.1, 1.0)
 
 pre
   @include zurui-box-deboss(.1, .4, .7)
