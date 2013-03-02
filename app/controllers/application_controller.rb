@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
+  helper_method :user_signed_in?,:current_user
+
   def user_signed_in!
     render nothing:true unless user_signed_in?
   end

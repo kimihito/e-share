@@ -49,7 +49,7 @@ function openUserPage(){
   var user=getUserInfo();
   if(user)openUserPageWindow(user);
   else{
-    post('users.json',null,function(user){
+    post('users.json',{},function(user){
       saveUserInfo(user);
       openUserPageWindow(user);
     });

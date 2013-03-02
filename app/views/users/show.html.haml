@@ -16,9 +16,8 @@
         #{link_to xvideo.title, xvideo.url, "style" => "margin-left:20px;font-size:23px"}
 
   #favorite.tab-pane
-    .indent.well
-      %img{"src"=>"/path/to/image","alt"=>"Description of image","style"=>"width:150px;height:150px; float:left;"}
-
-      #{link_to "お気に入りのAVタイトル", "URL", "style" => "margin-left:20px;font-size:23px"}
-  
+    - @user.favorited_xvideos.each do |xvideo|
+      .indent.well
+        %img{"src"=>"#{xvideo.thumb_url}","alt"=>"Description of image","style"=>"width:150px;height:150px; float:left;"}
+        #{link_to xvideo.title, xvideo.url, "style" => "margin-left:20px;font-size:23px"}
 

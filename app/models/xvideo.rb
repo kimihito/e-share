@@ -14,9 +14,22 @@ class Xvideo < ActiveRecord::Base
   validates_uniqueness_of :url
 
   scope :recently_watched, -> page = 1 {
-    recently_watched_xvideo_ids = WatchHistory.order('created_at ASC').select(:xvideo_id).uniq.page(page).pluck(:id)
+    recently_watched_xvideo_ids = WatchHistory.order('created_at ASC').select(:xvideo_id).uniq.pluck(:id)#.page(f*ck)
     where(id: recently_watched_xvideo_ids)
   }
+
+  scope :recently_favorited, -> page = 1 {
+    recently_favorited_xvideo_ids = FavoriteVideo.order('created_at ASC').select(:xvideo_id).uniq.pluck(:id)#.page(f*ck)
+    where(id: recently_favorited_xvideo_ids)
+  }
+
+  def favorite_count
+    FavoriteVideo.where(xvideo_id:id).count
+  end
+
+  def user_favorited?(user)
+    FavoriteVideo.where(user_id:user.id,xvideo_id:id).present?
+  end
 
   private
 
